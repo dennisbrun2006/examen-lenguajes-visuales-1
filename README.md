@@ -68,7 +68,7 @@ CategoriaId	int	FOREIGN KEY hacia Categorias (Id)
 
 NOTA: No es necesario crear las tablas a mano. La app las genera automáticamente al iniciar si la base está vacía.
 
-3. Cadena de conexión
+### 3. Cadena de conexión
 La conexión a SQL Server se configura en el archivo AppDbContext.cs.
 Por defecto, la cadena de conexión es la siguiente:
 
@@ -79,7 +79,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 }
 
 
-###¿Qué debes revisar?
+### ¿Qué debes revisar?
 
 El nombre del servidor (localhost\\SQLEXPRESS) debe coincidir con tu instalación de SQL Server.
 
@@ -92,8 +92,8 @@ Cambia la cadena por:
 optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=ExamenLV1DB;User Id=TU_USUARIO;Password=TU_PASSWORD;TrustServerCertificate=True;");
 
 
-4. Primer uso
-5. Al ejecutar la aplicación, si la base de datos y las tablas no existen, la app las creará automáticamente usando Entity Framework.
+### 4. Primer uso
+### 5. Al ejecutar la aplicación, si la base de datos y las tablas no existen, la app las creará automáticamente usando Entity Framework.
 
 Puedes gestionar la base y ver los datos con SQL Server Management Studio (SSMS).
 
