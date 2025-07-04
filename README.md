@@ -47,19 +47,19 @@ La aplicación utiliza tres tablas principales: Usuarios, Categorias y Productos
 Normalmente, Entity Framework las crea automáticamente al ejecutar la app por primera vez,
 pero aquí se detallan sus estructuras básicas por si necesitas revisarlas o crearlas manualmente:
 
-**Tabla: Usuarios
+**Tabla: Usuarios**
 
 Id	int	PRIMARY KEY, Identity
 Nombre	nvarchar	No nulo
 Correo	nvarchar	ÚNICO, No nulo
 Contraseña	nvarchar	No nulo
 
-**Tabla: Categorias
+**Tabla: Categorias**
 
 Id	int	PRIMARY KEY, Identity
 Nombre	nvarchar	ÚNICO, No nulo
 
-**Tabla: Productos
+**Tabla: Productos**
 
 Id	int	PRIMARY KEY, Identity
 Nombre	nvarchar	No nulo
@@ -85,7 +85,7 @@ El nombre del servidor (localhost\\SQLEXPRESS) debe coincidir con tu instalació
 
 El nombre de la base de datos (ExamenLV1DB) debe ser igual al que creaste.
 
-###Si tu SQL Server requiere usuario y contraseña:
+### Si tu SQL Server requiere usuario y contraseña:
 Cambia la cadena por:
 
 
