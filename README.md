@@ -47,7 +47,7 @@ La aplicación utiliza tres tablas principales: Usuarios, Categorias y Productos
 Normalmente, Entity Framework las crea automáticamente al ejecutar la app por primera vez,
 pero aquí se detallan sus estructuras básicas por si necesitas revisarlas o crearlas manualmente:
 
-**Tabla: Usuarios**
+- **Tabla: Usuarios**
 
 Id	int	PRIMARY KEY, Identity
 Nombre	nvarchar	No nulo
