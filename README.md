@@ -107,6 +107,6 @@ Errores de conexión: Si ves errores al iniciar la app, revisa la cadena de cone
 Modificaciones: Si cambias el nombre de la base de datos o el servidor, recuerda actualizar la cadena de conexión en el código.
 
 
-Autor
-Dennis Brunaga
-Proyecto final de la materia "Lenguajes Visuales 1"
+### Autor
+### Dennis Brunaga
+### Proyecto final de la materia "Lenguajes Visuales 1"
