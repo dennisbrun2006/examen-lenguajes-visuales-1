@@ -1,0 +1,110 @@
+﻿<Window x:Class="ExamenLenguajesVisuales1.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Gestión de Productos y Categorías" Height="550" Width="900" WindowStartupLocation="CenterScreen"
+        Background="#F6F7FB">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#375A7F"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="6"/>
+            <Setter Property="Padding" Value="7 3"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Margin" Value="0 10 0 0"/>
+            <Setter Property="RowBackground" Value="#F6F7FB"/>
+            <Setter Property="AlternatingRowBackground" Value="#E2E6ED"/>
+            <Setter Property="GridLinesVisibility" Value="None"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="SelectionUnit" Value="FullRow"/>
+            <Setter Property="RowHeight" Value="32"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Border Background="White" CornerRadius="12" Padding="18" Margin="15">
+            <StackPanel>
+                <TextBlock Text="Gestión de Productos y Categorías" FontSize="28"
+                           FontWeight="Bold" Foreground="#333" Margin="0 0 0 18"
+                           HorizontalAlignment="Center"/>
+                <TabControl Background="#F6F7FB" BorderThickness="0">
+                    <!-- Tab Productos -->
+                    <TabItem Header="🛒 Productos">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Filtro de búsqueda -->
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0 0 0 10">
+                                <TextBlock Text="Buscar por nombre:" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                                <TextBox Width="200" Text="{Binding FiltroProducto, UpdateSourceTrigger=PropertyChanged}"/>
+                                <Button Content="Buscar" Margin="10 0 0 0" Click="BuscarProducto_Click"/>
+                                <Button Content="Agregar" Margin="10 0 0 0" Click="AgregarProducto_Click"/>
+                            </StackPanel>
+
+                            <!-- Tabla de productos -->
+                            <DataGrid ItemsSource="{Binding ProductosFiltrados}" SelectedItem="{Binding ProductoSeleccionado}"
+                                      AutoGenerateColumns="False" Grid.Row="1" Margin="0 10 0 0" IsReadOnly="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="40"/>
+                                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
+                                    <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" Width="90"/>
+                                    <DataGridTextColumn Header="Categoría" Binding="{Binding Categoria.Nombre}" Width="120"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <!-- Botones editar/eliminar -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2" Margin="0 10 0 0">
+                                <Button Content="Editar" Width="80" Margin="0 0 10 0" Click="EditarProducto_Click"/>
+                                <Button Content="Eliminar" Width="80" Click="EliminarProducto_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <!-- Tab Categorías -->
+                    <TabItem Header="📂 Categorías">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Filtro y agregar -->
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0 0 0 10">
+                                <TextBlock Text="Buscar por nombre:" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                                <TextBox Width="200" Text="{Binding FiltroCategoria, UpdateSourceTrigger=PropertyChanged}"/>
+                                <Button Content="Buscar" Margin="10 0 0 0" Click="BuscarCategoria_Click"/>
+                                <Button Content="Agregar" Margin="10 0 0 0" Click="AgregarCategoria_Click"/>
+                            </StackPanel>
+
+                            <!-- Tabla de categorías -->
+                            <DataGrid ItemsSource="{Binding CategoriasFiltradas}" SelectedItem="{Binding CategoriaSeleccionada}"
+                                      AutoGenerateColumns="False" Grid.Row="1" Margin="0 10 0 0" IsReadOnly="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="40"/>
+                                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <!-- Botones editar/eliminar -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2" Margin="0 10 0 0">
+                                <Button Content="Editar" Width="80" Margin="0 0 10 0" Click="EditarCategoria_Click"/>
+                                <Button Content="Eliminar" Width="80" Click="EliminarCategoria_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
