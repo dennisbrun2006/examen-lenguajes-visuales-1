@@ -54,12 +54,12 @@ Nombre	nvarchar	No nulo
 Correo	nvarchar	ÚNICO, No nulo
 Contraseña	nvarchar	No nulo
 
-**Tabla: Categorias**
+- **Tabla: Categorias**
 
 Id	int	PRIMARY KEY, Identity
 Nombre	nvarchar	ÚNICO, No nulo
 
-**Tabla: Productos**
+- **Tabla: Productos**
 
 Id	int	PRIMARY KEY, Identity
 Nombre	nvarchar	No nulo
